@@ -76,7 +76,7 @@ Restart SSH Service `service sshd restart`
 ### Step 4-3. Configure and enable Apache
 1. Go and edit 000-default.conf fiel `sudo nano /etc/apache2/sites-available/catalog.conf`
 2. Write the following lines:
-`
+```
 <VirtualHost *:80>
                 ServerName mywebsite.com
                 ServerAdmin admin@mywebsite.com
@@ -94,7 +94,7 @@ Restart SSH Service `service sshd restart`
                 LogLevel warn
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-`
+```
 #### Resource: [Deploy Flask app on ubuntu](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps), [Udacity](http://blog.udacity.com/2015/03/step-by-step-guide-install-lamp-linux-apache-mysql-python-ubuntu.html)
 
 ### Step 4-4. Create .wsgi file
