@@ -28,11 +28,14 @@ This project requires Python 2.X (2.7.x is expected) and PostgreSQL 9.3 or lates
 11. Lastly NTP(port 123) with `sudo ufw allow ntp`
 12. Enabled changes `sudo ufw enable`
 13. Check firewall status `sudo ufw status`
+14. Deny port 22 with `sudo ufw deny 22`
 
 Go and open file called sshd_config running `sudo nano /etc/ssh/sshd_config`
 Change port 22 to 2200
 Change PermitRootLogin from without-password to prohibit-password
 Restart SSH Service `service sshd restart`
+
+#### Resource: [How To Set Up a Firewall with UFW on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04)
 
 ### Step 3. Give `grader` access
 1. Create a new user account called `grader`
@@ -179,10 +182,19 @@ To find error messages, run commands `cat /var/log/apache2/error.log` or `cat /v
 9. Install oauth2client `sudo pip install oauth2client`
 10. Install psycopg2 `sudo pip install psycopg2`
 
+### Step 5-5. Install Ubuntu package
+1. Install [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecurityUpdates) for auto update of your server.
+2. Install [Fail2Ban](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04) to protect SSH with Fail2Ban.
+<!-- 3. Install [Nagios](https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04) to provide server's status information. While installing and configuring Nagios, and if you got error message 'Failed to start nagios.service: Unit nagios.service failed to load: No such file or directory', try [this solution](https://serverfault.com/questions/774498/failed-to-start-nagios-service-unit-nagios-service-failed-to-load-no-such-file) with [this tutorial](https://www.howtoforge.com/tutorial/ubuntu-nagios/). And here is [basic vim commands in Japanese](http://language-and-engineering.hatenablog.jp/entry/20121207/p1). -->
+
 ## Third-party resources
 [finger](http://manpages.ubuntu.com/manpages/precise/man1/finger.1.html)
+[Setup Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-14-04)
+[Fail2Ban](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04)
+<!-- [Nagios](https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04) -->
 
 ## References
+* [How To Set Up a Firewall with UFW on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04)
 * [Configuration timezone](https://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt)
 * [Deploy Flask app on ubuntu](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 * [Udacity](http://blog.udacity.com/2015/03/step-by-step-guide-install-lamp-linux-apache-mysql-python-ubuntu.html)
@@ -191,3 +203,5 @@ To find error messages, run commands `cat /var/log/apache2/error.log` or `cat /v
 * [Google Cloud Platform](https://console.cloud.google.com/apis/credentials)
 * [Engine Configuration](http://docs.sqlalchemy.org/en/rel_1_0/core/engines.html#postgresql)
 * [How to secure PostgreSQL on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+* [Fail2Ban](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04)
+<!-- * [Nagios](https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04) -->
